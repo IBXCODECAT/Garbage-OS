@@ -14,12 +14,12 @@ ReadDisk:
 	
 	int 0x13 ;BIOS interupt to read disk (Sets a special register if read fails)
 	jc DiskReadFailed ;Jump to DiskReadFailed if disk read interupt failed
-	
 	ret
 
 DiskReadError:
-	db "Could not read disk", 0
+	db "Could not read disk :(", 0
 
 DiskReadFailed:
-	mov bx, DiskReadError
-	jmp $
+	mov bx, DiskReadError ; Move disk read error stirng into teletype register
+	call Print ;Call print function to let the user know of our failures
+	jmp $ ;Infinite jump prevents further instructions
