@@ -5,7 +5,7 @@ BOOT_DISK:
 
 ReadDisk:
 	mov ah, 0x02 ;BIOS Function for reading a disk...
-	mov bx, BOOT_SECTOR_SPACE
+	mov bx, BOOT_SECTOR_SPACE ;Read beyond the space of the boot sector
 	mov al, 2 ;Read 2 disk sectors (~2000 bytes)
 	mov dl, [BOOT_DISK] ;Select drive
 	mov ch, 0x00 ;Select drive cylander 0 (harddrive specific)
@@ -20,6 +20,6 @@ DiskReadError:
 	db "Could not read disk :(", 0
 
 DiskReadFailed:
-	mov bx, DiskReadError ; Move disk read error stirng into teletype register
+	mov bx, DiskReadError ;Move disk read error stirng into teletype register
 	call Print ;Call print function to let the user know of our failures
 	jmp $ ;Infinite jump prevents further instructions

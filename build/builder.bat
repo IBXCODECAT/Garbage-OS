@@ -1,4 +1,8 @@
-@echo on
+@echo off
+
+title garbage-os compiler
+prompt compile:
+color 0A
 
 echo compiling ASM using NASM...
 nasm %~dp0/../src/boot.asm -f bin -o %~dp0/../build/bootloader.bin > compile-bootloader.log
@@ -30,8 +34,6 @@ if not exist iso/ (
 	mkdir iso
 )
 move garbage-os.iso %~dp0/iso/garbage-os.iso
-
-pause
 
 echo starting simulation...
 start simulate.bxrc
