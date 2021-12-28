@@ -1,4 +1,4 @@
-@echo off
+@echo on
 
 echo compiling ASM using NASM...
 nasm %~dp0/../src/boot.asm -f bin -o %~dp0/../build/bootloader.bin > compile-bootloader.log
@@ -29,4 +29,7 @@ if not exist iso/ (
 )
 move garabage-os.iso %~dp0/iso/garabage-os.iso
 
-start bochs-config.bxrc
+pause
+
+echo starting simulation...
+start simulate.bxrc
