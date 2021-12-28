@@ -6,8 +6,9 @@ mov bp, 0x7c00 ;Setup CPU stack base at this programs memory address
 mov sp, bp ;Move the CPU stack pointer to the stack base
 
 mov al, [PROGRAM_SPACE] ;Do something else I don't fully understand
-
 call ReadDisk ;Call readDisk from dskread.asm
+
+mov bx, BootMSG ;Move predefined teletype.asm boot message ASCII bytes into CPU register bx
 call Print ;Call print from teletype.asm
 
 jmp $ ;Infinite Instruction Jump
