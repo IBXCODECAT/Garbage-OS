@@ -18,7 +18,7 @@ ReadDisk:
 	ret
 
 DiskReadError:
-	db "Disk read error",0
+	db "Could not read disk", 0
 
 DiskReadFailed:
 	mov bx, DiskReadError
