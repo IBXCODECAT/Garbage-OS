@@ -14,7 +14,7 @@ move compile-bootloader.log %~dp0/logs/compile-bootloader.log
 move compile-extended.log %~dp0/logs/compile-extended.log
 
 echo writing disk image...
-copy /b bootloader.bin+extended.bin garabage-os.iso
+copy /b bootloader.bin+extended.bin garbage-os.iso
 
 echo relocating binaries...
 if not exist bin/ (
@@ -27,7 +27,7 @@ echo relocating disk image...
 if not exist iso/ (
 	mkdir iso
 )
-move garabage-os.iso %~dp0/iso/garabage-os.iso
+move garbage-os.iso %~dp0/iso/garbage-os.iso
 
 pause
 

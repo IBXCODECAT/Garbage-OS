@@ -18,6 +18,3 @@ Print:
 		pop ax
 		pop bx
 		ret ;Return from print func
-
-BootMSG:
-	db "Boot OK", 0

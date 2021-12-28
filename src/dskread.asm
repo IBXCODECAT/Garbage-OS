@@ -1,11 +1,11 @@
-PROGRAM_SPACE equ 0x7e00 ;Offset which shoves everything after boot.asm binary output
+BOOT_SECTOR_SPACE equ 0x7e00 ;Offset which shoves everything after boot.asm binary output
 
 BOOT_DISK:
 	db 0
 
 ReadDisk:
 	mov ah, 0x02 ;BIOS Function for reading a disk...
-	mov bx, PROGRAM_SPACE
+	mov bx, BOOT_SECTOR_SPACE
 	mov al, 2 ;Read 2 disk sectors (~2000 bytes)
 	mov dl, [BOOT_DISK] ;Select drive
 	mov ch, 0x00 ;Select drive cylander 0 (harddrive specific)
