@@ -10,6 +10,6 @@ jmp $
 %include "../src/teletype.asm" ;Include path is relative to the builder.bat file location...
 
 DiskReadMSG:
-	db "Disk Read Sucsessfull", 0
+	db "Disk OK", 0
 
-times 2048-($-$$) db 0 ;Fill four sectors with bytes
+times 2048-($-$$) db 0x1 ;Fill four sectors with bytes

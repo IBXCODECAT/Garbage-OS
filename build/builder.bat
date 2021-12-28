@@ -15,6 +15,7 @@ move compile-extended.log %~dp0/logs/compile-extended.log
 
 echo writing disk image...
 copy /b bootloader.bin+extended.bin garbage-os.iso
+copy garbage-os.iso output.bin
 
 echo relocating binaries...
 if not exist bin/ (
@@ -22,6 +23,7 @@ if not exist bin/ (
 )
 move bootloader.bin %~dp0/bin/bootloader.bin
 move extended.bin %~dp0/bin/extended.bin
+move output.bin %~dp0/bin/output.bin
 
 echo relocating disk image...
 if not exist iso/ (
