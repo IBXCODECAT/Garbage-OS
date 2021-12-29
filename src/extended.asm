@@ -34,18 +34,10 @@ StartProtectedMode:
 	mov fs, ax
 	mov gs, ax
 
-	mov [0xb8000], byte "H" ;Move H into video memory
-	mov [0xb8002], byte "e" ;Move H into video memory
-	mov [0xb8004], byte "l" ;Move H into video memory
-	mov [0xb8006], byte "l" ;Move H into video memory
-	mov [0xb8008], byte "o" ;Move H into video memory
-	mov [0xb800a], byte " " ;Move H into video memory
-	mov [0xb800c], byte "W" ;Move H into video memory
-	mov [0xb800e], byte "o" ;Move H into video memory
-	mov [0xb8010], byte "r" ;Move H into video memory
-	mov [0xb8012], byte "l" ;Move H into video memory
-	mov [0xb8014], byte "d" ;Move H into video memory
-	mov [0xb8016], byte "!" ;Move H into video memory
+	mov ebp, 0x90000 ;Increase stack size low
+	mov esp, ebp ;Increase stack size high
+
+	mov [0xb8000], byte "H"
 
 	jmp $
 

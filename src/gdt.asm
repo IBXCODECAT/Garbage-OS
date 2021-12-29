@@ -49,3 +49,13 @@ gdt_descriptor: ;This is what we will pass into the CPU register
 
 code_segment equ gdt_code_descriptor - gdt_null_descriptor
 data_segment equ gdt_data_descriptor - gdt_null_descriptor
+
+[bits 32]
+
+EditGDT:
+	mov [gdt_code_descriptor + 6], byte 10101111b
+
+	mov [gdt_data_descriptor + 6], byte 10101111b
+	ret
+
+[bits 16]
